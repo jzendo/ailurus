@@ -1,7 +1,7 @@
 {
   "name": "simple-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "a tiny template is inspired by handlebars.js.",
   "main": "index.js",
   "scripts": {
     "global-tools": "npm i -g gulp-cli & npm i -g jasmine & npm i -g eslint",
@@ -12,7 +12,7 @@
     "gulp-dev": "gulp dev",
     "test": "jasmine"
   },
-  "author": "",
+  "author": "jzendo",
   "license": "ISC",
   "devDependencies": {
     "babel-preset-es2015": "^6.13.2",
