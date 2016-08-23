@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A Tiny Template</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        text-align: center;
+      }
+      h2, h3 {
+        margin: 10px 0;
+        text-align: center;
+      }
+      textarea {
+        display: block;
+        width: 100%;
+        height: 150px;
+        resize: none;
+        border-radius: 6px;
+      }
+      textarea.tpl,
+      textarea.html {
+        height: 300px;
+      }
+      .container {
+        min-width: 800px;
+        margin: 50px 60px 0;
+      }
+      .row::after {
+        clear: both;
+        content: '.';
+        height: 0;
+        overflow: hidden;
+        display: block;
+      }
+      .column {
+        box-sizing: border-box;
+        width: 48%;
+        height: 100%;
+      }
+      .l {
+        float: left;
+      }
+      .r {
+        float: right;
+      }
+      .dir {
+        height: 60px;
+      }
+      .dir .column {
+        line-height: 50px;
+        font-size: 50px;
+        color: green;
+      }
+      p.p1 {
+        background-color: rgb(255, 28, 28);
+      }
+      p.p2 {
+        background-color: rgb(255, 87, 87);
+      }
+      p.p3 {
+        background-color: rgb(255, 168, 168);
+      }
+      .demo {
+        text-align: left;
+        margin: 20px 0;
+        padding: 10px 20px;
+        background-color: #efefef;
+      }
+      .demo ul {
+        list-style-type: decimal;
+      }
+      .demo li {
+        margin: 5px 0 5px 20px;
+      }
+    </style>
+    <script src="dist/template.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Control Flow</h2>
+      <div class="row">
+        <div class="column l"><textarea readonly id="tpl" class="tpl"></textarea></div>
+        <div class="column r"><textarea readonly id="html" class="html"></textarea></div>
+      </div>
+      <div class="row dir">
+        <div class="column l">&#8595;</div>
+        <div class="column r">&#8593;</div>
+      </div>
+      <div class="row">
+        <textarea readonly id="data"></textarea>
+      </div>
+      <div class="demo">
+        <h3>DEMO</h3>
+        <div id="preview"></div>
+      </div>
+    </div>
+    <script type="text/html" id="aTpl">
+      <div>
+        I am {{myName}}.
+        <p>I have three treasure</p>
+        {{#each treasure}}
+          <p 
+          {{#if power >= 80 }}
+          class="p1"
+          {{/if}}
+
+          {{#if power < 80 && power >= 60 }}
+          class="p2"
+          {{/if}}
+          
+          {{#if power < 60 }}
+          class="p3"
+          {{/if}}
+          >
+            {{name}}
+          </p>
+        {{/each}}
+      </div>
+    </script>
+
+    <script>
+      window.onload = function() {
+        var $ = function(id) {
+          return document.getElementById(id);
+        };
+
+        var tpl = $("aTpl").innerHTML,
+            html,
+            data;
+        
+        data = {
+          myName: "J",
+          treasure: [{
+              name: 'Faith', 
+              power: 90
+            },{
+              name: 'Courage', 
+              power: 70
+            },{
+              name: 'Setback', 
+              power: 50
+            }
+          ]
+        };
+
+        html = window.simpleTemplate.default(tpl, data);
+
+        $("tpl").value = tpl;
+        $("data").value = JSON.stringify(data);
+        $("html").value = html;
+        $("preview").innerHTML = html;
+      };
+    </script>
+  </body>
+</html>
