@@ -1,2 +1,3 @@
-# template
+a tiny template
+===============
 TODO
