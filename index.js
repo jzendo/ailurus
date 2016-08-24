@@ -1,1 +1,1 @@
-module.exports = require("./dist/template");
+module.exports = require("./dist/template").default;
