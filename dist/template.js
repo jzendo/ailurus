@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("simpleTemplate", [], factory);
+		define("ailurus", [], factory);
 	else if(typeof exports === 'object')
-		exports["simpleTemplate"] = factory();
+		exports["ailurus"] = factory();
 	else
-		root["simpleTemplate"] = factory();
+		root["ailurus"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -187,7 +187,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  walk.start();
 	  parse(tpl);
 	  walk.end();
-		console.log(templateFnBody());
 	  // console.log("Parsed result:\n\n", walk.toString());
 	  return context ? templateFn(templateFnBody())(context) : templateFn(templateFnBody());
 	};

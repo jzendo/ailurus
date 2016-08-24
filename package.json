@@ -1,7 +1,7 @@
 {
-  "name": "simple-template",
+  "name": "ailurus",
   "version": "1.0.0",
-  "description": "a tiny template is inspired by handlebars.js.",
+  "description": "A tiny template who is inspired by handlebarsjs should make you love it",
   "main": "index.js",
   "scripts": {
     "global-tools": "npm i -g gulp-cli & npm i -g jasmine & npm i -g eslint",

@@ -3,10 +3,16 @@ var gulp = require("gulp"),
   babel= require("gulp-babel"),
   clean = require("gulp-clean"),
   uglify = require("gulp-uglify"),
-  plumber = require('gulp-plumber');
+  plumber = require('gulp-plumber'),
+  camelCase = require('camelcase');
 
 var path = require("path"),
   del = require('del');
+
+var packageJson = require('./package.json');
+
+// Library name
+var exportLibraryName = camelCase(packageJson.name);
 
 gulp.task("clean:dist", function() {
   return gulp.src("dist", { read: false }).pipe(clean());
@@ -32,7 +38,7 @@ gulp.task("js:webpack", ["js:babel", "clean:dist"], function() {
       entry: path.resolve(__dirname, "tmp", "template.js"),
       output: {
         filename: 'template.js',
-        library: 'simpleTemplate',
+        library: exportLibraryName,
         libraryTarget: 'umd',
         umdNamedDefine: true
       }
