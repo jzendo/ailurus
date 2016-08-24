@@ -8,4 +8,4 @@ Syntax
 -   {{#each items}} ... {{/each}}: foreach items
 -   {{#if age > 13}} ... {{/if}}: if age > 13 then do something
   
-Only ahove 3 syntax forms.
+The 3 syntax forms(above) only.
