@@ -9,3 +9,7 @@ Syntax
 -   {{#if age > 13}} ... {{/if}}: if age > 13 then do something
   
 The 3 syntax forms(above) only.
+
+License
+-------
+It is licensed under the MIT license(http://opensource.org/licenses/MIT). 
