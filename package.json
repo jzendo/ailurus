@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "global-tools": "npm i -g gulp-cli & npm i -g jasmine & npm i -g eslint",
-    "init": "npm run global-tools & npm i",
+    "start": "npm run global-tools & npm i",
     "build-dist": "npm run gulp-dist",
     "build-dev": "npm run gulp-dev",
     "gulp-dist": "gulp",
